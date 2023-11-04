@@ -2,72 +2,68 @@
   font-family: monospace;
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Ensures padding does not affect overall width */
+  box-sizing: border-box;
 }
 
 header {
   background-color: teal;
   color: white;
-  text-align: center; /* Centers the header text */
+  text-align: center;
 }
 
 h1 {
   padding: 20px;
-  margin-bottom: 20px; /* Adds some space below the header */
+  margin-bottom: 20px;
 }
 
 main {
   display: flex;
-  flex-wrap: wrap; /* Allows flex items to wrap as needed */
+  flex-wrap: wrap;
   justify-content: space-around;
+  align-items: flex-start;
 }
 
 aside {
+  flex: 1;
   margin: 20px;
-  flex: 1; /* Gives the aside element a flexible width */
+  max-width: 200px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around; /* This will spread out the items */
+  justify-content: space-around;
   width: 200px;
   margin-top: 20px;
-  padding: 20px; /* Adds padding inside the form */
-  border: 1px solid #ccc; /* Matches the border style of the city cards */
-  border-radius: 8px; /* Optional: Adds rounded corners */
-  background-color: white; /* Assuming the form has a white background */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Adjusts spacing for the label-input groups */
 form label {
-  margin-bottom: 5px; /* Adds a small space below each label */
+  margin-bottom: 5px;
 }
 
-/* Gives a margin to the bottom of each input for spacing */
 form input[type="text"],
 form select,
 form .radio {
   margin-bottom: 15px;
 }
 
-/* Spreads radio buttons and labels inside the .radio container */
 .radio {
-  justify-content: start; /* Aligns radio buttons to the start of the container */
+  justify-content: start;
 }
 
-/* Style for the individual radio button labels */
 .radio label {
-  margin-right: 10px; /* Adds space to the right of each label */
+  margin-right: 10px;
 }
 
-/* More specific style for radio inputs to remove the default web browser style */
 form input[type="radio"] {
-  accent-color: teal; /* Changes the color of the radio button */
+  accent-color: teal;
 }
 
-/* Ensures the 'Add' button is aligned and spaced nicely at the bottom */
 form button {
   padding: 5px 15px;
   margin-top: 10px;
@@ -76,7 +72,7 @@ form button {
   color: white;
   border: none;
   border-radius: 4px;
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  transition: background-color 0.3s ease;
 }
 
 form button:hover {
@@ -84,20 +80,22 @@ form button:hover {
 }
 
 section#country-list {
+  flex: 3;
   display: flex;
-  flex-wrap: wrap; /* This allows the items to wrap to the next line */
-  justify-content: space-around; /* This will space out the items evenly */
-  gap: 20px; /* Space between items */
+  flex-wrap: wrap;
+  gap: 20px;
   padding: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .country-card {
   display: flex;
-  flex-direction: row; /* Ensures content is laid out in a row */
-  align-items: center; /* Centers items vertically */
-  justify-content: start; /* Aligns items to the start of the card */
-  width: 400px; /* Fixed width */
-  margin: 20px; /* Consistent margin on all sides */
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: 400px;
+  margin: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
@@ -114,7 +112,6 @@ section#country-list {
   margin-right: 20px;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* Add object-fit to ensure images keep their aspect ratio without stretching. */
   object-fit: cover;
 }
 
@@ -162,11 +159,13 @@ section#country-list {
   margin-right: 20px;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* Add object-fit to ensure images keep their aspect ratio without stretching. */
   object-fit: cover;
 }
 
 /* * {
+
+Original css
+
   font-family: monospace;
   margin: 0;
   padding: 0;
