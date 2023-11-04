@@ -6,6 +6,7 @@ module.exports = {
     sequelize
       .query(seedData)
       .then(() => {
+        //   So, imagine my disappointment, after creating a detailed database structure for the pet adoption agency, to discover that we aren't even doing a pet adoption agency in this assignment!  Not.. happy.. :-D
         console.log("DB seeded!");
         res.sendStatus(200);
       })
@@ -30,5 +31,18 @@ module.exports = {
       )
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(`error creating city, `, err));
+  },
+
+  getCities: (req, res) => {
+    // const { countryId, name, rating } = req.body;
+    // console.log("countryId: " + countryId);
+    sequelize
+      .query(
+        `SELECT ci.city_name, co.name, ci.rating
+      FROM cities ci
+      JOIN countries co on ci.country_id = co.country_id`
+      )
+      .then((dbRes) => res.status(200).send(dbRes[0]))
+      .catch((err) => console.log(`error getting cities, `, err));
   },
 };

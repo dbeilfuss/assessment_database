@@ -38,9 +38,13 @@ function getCities() {
 
   axios.get("http://localhost:4004/cities/").then((res) => {
     res.data.forEach((elem) => {
+      const city = elem.city_name;
+      const country = elem.name;
+      const rating = elem.rating;
       let countryCard = `<div class="country-card">
-                    <h2>${elem.city}, ${elem.country}</h2>
-                    <h3>Rating: ${elem.rating}/5</h3>
+                    <h2>${city}</h2>
+                    <h2> ${country}</h2>
+                    <h3>Rating: ${rating}/5</h3>
                     <button onclick="deleteCard(${elem["city_id"]})">Delete</button>
                     </div>
                 `;

@@ -207,11 +207,11 @@ values ('Afghanistan'),
 create table cities (
     city_id serial primary key, 
 	country_id integer,
-    name varchar,
+    city_name varchar,
     rating integer
 );
 
-INSERT INTO cities (country_id, name, rating) 
+INSERT INTO cities (country_id, city_name, rating) 
 VALUES
 (187, 'New York', 4),
 (187, 'Los Angeles', 3),
@@ -227,7 +227,8 @@ VALUES
 (187, 'Goodland, Kansas', 3),
 (9, 'Sydney', 5),
 (83, 'Jerusalem', 5),
-(95, 'Beirut', 3);
+(78, 'Agra', 5),
+(95, 'Beirut', 2);
 `;
 
 module.exports = {
