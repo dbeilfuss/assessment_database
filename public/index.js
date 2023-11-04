@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const nameInput = document.querySelector("#name-input");
 const countrySelect = document.querySelector("#country-select");
 const countryList = document.querySelector("#country-list");
+const imageInput = document.getElementById("image-url-input");
 
 function handleSubmit(e) {
   e.preventDefault();
@@ -11,11 +12,19 @@ function handleSubmit(e) {
     return;
   }
 
+  // Set a default image URL
+  const defaultImageUrl =
+    "https://www.shutterstock.com/image-vector/background-scene-buildings-city-illustration-260nw-1718113291.jpg";
+  const imageUrl = imageInput.value.trim()
+    ? imageInput.value.trim()
+    : defaultImageUrl;
+
   let userRating = document.querySelector('input[name="rating"]:checked').value;
   let body = {
     name: nameInput.value,
     rating: +userRating,
     countryId: +countrySelect.value,
+    image_url: imageUrl,
   };
 
   axios.post("http://localhost:4004/cities", body).then(() => {
@@ -38,17 +47,17 @@ function getCities() {
 
   axios.get("http://localhost:4004/cities/").then((res) => {
     res.data.forEach((elem) => {
-      const city = elem.city_name;
-      const country = elem.name;
-      const rating = elem.rating;
-      const city_id = elem.city_id;
+      const { city_name, name: country, rating, city_id, image_url } = elem;
       let countryCard = `<div class="country-card">
-                    <h2>${city}</h2>
-                    <h2> ${country}</h2>
-                    <h3>Rating: ${rating}/5</h3>
-                    <button onclick="deleteCard(${city_id})">Delete</button>
-                    </div>
-                `;
+      <div class="city-image" style="background-image: url('${image_url}')"></div>
+      <div class="card-content">
+          <h2>${city_name}</h2>
+          <h2>${country}</h2>
+          <h3>Rating: ${rating}/5</h3>
+          <button onclick="deleteCard(${city_id})">Delete</button>
+      </div>
+  </div>
+  `;
 
       countryList.innerHTML += countryCard;
     });

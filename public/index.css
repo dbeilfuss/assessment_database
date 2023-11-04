@@ -1,50 +1,225 @@
 * {
-    font-family: monospace;
-    margin: 0;
-    padding: 0;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding does not affect overall width */
 }
 
 header {
-    background-color: teal;
-    color: white;
+  background-color: teal;
+  color: white;
+  text-align: center; /* Centers the header text */
 }
 
 h1 {
-    padding: 20px;
+  padding: 20px;
+  margin-bottom: 20px; /* Adds some space below the header */
 }
 
 main {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap; /* Allows flex items to wrap as needed */
+  justify-content: space-around;
 }
 
 aside {
-    margin: 20px;
+  margin: 20px;
+  flex: 1; /* Gives the aside element a flexible width */
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 300px;
-    width: 200px;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* This will spread out the items */
+  width: 200px;
+  margin-top: 20px;
+  padding: 20px; /* Adds padding inside the form */
+  border: 1px solid #ccc; /* Matches the border style of the city cards */
+  border-radius: 8px; /* Optional: Adds rounded corners */
+  background-color: white; /* Assuming the form has a white background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
 }
 
+/* Adjusts spacing for the label-input groups */
+form label {
+  margin-bottom: 5px; /* Adds a small space below each label */
+}
+
+/* Gives a margin to the bottom of each input for spacing */
+form input[type="text"],
+form select,
+form .radio {
+  margin-bottom: 15px;
+}
+
+/* Spreads radio buttons and labels inside the .radio container */
 .radio {
-    display: flex;
+  justify-content: start; /* Aligns radio buttons to the start of the container */
+}
+
+/* Style for the individual radio button labels */
+.radio label {
+  margin-right: 10px; /* Adds space to the right of each label */
+}
+
+/* More specific style for radio inputs to remove the default web browser style */
+form input[type="radio"] {
+  accent-color: teal; /* Changes the color of the radio button */
+}
+
+/* Ensures the 'Add' button is aligned and spaced nicely at the bottom */
+form button {
+  padding: 5px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+form button:hover {
+  background-color: darkcyan;
+}
+
+section#country-list {
+  display: flex;
+  flex-wrap: wrap; /* This allows the items to wrap to the next line */
+  justify-content: space-around; /* This will space out the items evenly */
+  gap: 20px; /* Space between items */
+  padding: 20px;
 }
 
 .country-card {
-    border: 1px solid black;
-    padding: 20px;
-    margin: 20px;
+  display: flex;
+  flex-direction: row; /* Ensures content is laid out in a row */
+  align-items: center; /* Centers items vertically */
+  justify-content: start; /* Aligns items to the start of the card */
+  width: 400px; /* Fixed width */
+  margin: 20px; /* Consistent margin on all sides */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.city-image {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Add object-fit to ensure images keep their aspect ratio without stretching. */
+  object-fit: cover;
+}
+
+.country-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.country-card h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.country-card h2:nth-child(2) {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.country-card h3 {
+  margin-top: 5px;
+  font-size: 1em;
+  color: #777;
+}
+
+.country-card button {
+  padding: 5px 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.country-card button:hover {
+  background-color: #0056b3;
+}
+
+.city-image {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Add object-fit to ensure images keep their aspect ratio without stretching. */
+  object-fit: cover;
+}
+
+/* * {
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: teal;
+  color: white;
+}
+
+h1 {
+  padding: 20px;
+}
+
+main {
+  display: flex;
+}
+
+aside {
+  margin: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.radio {
+  display: flex;
+} */
+
+/* .country-card {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
 }
 
 .country-card > h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .country-card > button {
-    margin-top: 10px;
-    padding: 2px 10px;
+  margin-top: 10px;
+  padding: 2px 10px;
 }
+
+.city-image {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+} */

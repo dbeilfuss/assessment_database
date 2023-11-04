@@ -208,27 +208,27 @@ create table cities (
     city_id serial primary key, 
 	country_id integer,
     city_name varchar,
-    rating integer
+    rating integer,
+    image_url varchar
 );
 
-INSERT INTO cities (country_id, city_name, rating) 
+INSERT INTO cities (country_id, city_name, rating, image_url) 
 VALUES
-(187, 'New York', 4),
-(187, 'Los Angeles', 3),
-(61, 'Paris', 5),
-(61, 'Lyon', 4),
-(86, 'Tokyo', 5),
-(86, 'Osaka', 4),
-(186, 'London', 5),
-(186, 'Edinburgh', 4),
-(9, 'Sydney', 5),
-(9, 'Melbourne', 4),
-(187, 'Ludington, Michigan', 4),
-(187, 'Goodland, Kansas', 3),
-(9, 'Sydney', 5),
-(83, 'Jerusalem', 5),
-(78, 'Agra', 5),
-(95, 'Beirut', 2);
+(187, 'New York', 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg'),
+(187, 'Los Angeles', 3, 'https://static.independent.co.uk/2023/07/07/10/iStock-515064346.jpg'),
+(61, 'Paris', 5, 'https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900'),
+(61, 'Lyon', 4, 'https://media.cntraveler.com/photos/57ec402c196e3f9630631fa4/16:9/w_2560%2Cc_limit/Saint_Georges_in_Vieux-Lyon_creditTristan_Deschamps.jpg'),
+(86, 'Tokyo', 3, 'https://media.cntraveller.com/photos/6343df288d5d266e2e66f082/1:1/w_4000,h_4000,c_limit/tokyoGettyImages-1031467664.jpeg'),
+(86, 'Osaka', 4, 'https://sakura.co/wp-content/uploads/2023/03/Sakuraco_osaka6-1.jpg'),
+(186, 'London', 4, 'https://assets.editorial.aetnd.com/uploads/2019/03/topic-london-gettyimages-760251843-feature.jpg'),
+(186, 'Edinburgh', 4, 'https://www.chasingthelongroad.com/wp-content/uploads/2023/04/edinburgh-calton.webp'),
+(9, 'Sydney', 3, 'https://media.tatler.com/photos/6141d37b9ce9874a3e40107d/16:9/w_2560%2Cc_limit/social_crop_sydney_opera_house_gettyimages-869714270.jpg'),
+(9, 'Melbourne', 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Melbourne_skyline_sor.jpg/1200px-Melbourne_skyline_sor.jpg'),
+(187, 'Ludington, Michigan', 5, 'https://www.mlive.com/resizer/M9X5U6D97AQ1De2r1lRUIYYRdHE=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.mlive.com/home/mlive-media/width2048/img/travel_impact/photo/22856397-standard.jpg'),
+(187, 'Goodland, Kansas', 3, 'https://www.roadsideamerica.com/attract/images/ks/KSGOOeaselR10_16.jpg'),
+(83, 'Jerusalem', 5, 'https://cdn.britannica.com/92/177992-050-AED0DC28/Dome-of-the-Rock-Temple-Mount-Jerusalem.jpg'),
+(78, 'Agra', 5, 'https://lp-cms-production.imgix.net/2019-06/283389.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1200'),
+(95, 'Beirut', 4, 'https://misstourist.com/wp-content/uploads/2023/06/Things-to-do-in-Beirut-660x440@2x.jpg');
 `;
 
 module.exports = {

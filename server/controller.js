@@ -21,13 +21,13 @@ module.exports = {
   },
 
   createCity: (req, res) => {
-    const { countryId, name, rating } = req.body;
-    console.log("countryId: " + countryId);
+    const { countryId, name, rating, image_url } = req.body;
+    console.log("image_url: " + image_url);
     sequelize
       .query(
-        `INSERT INTO cities (country_id, name, rating) 
+        `INSERT INTO cities (country_id, city_name, rating, image_url) 
       VALUES
-      (${countryId}, '${name}', ${rating});`
+      (${countryId}, '${name}', ${rating}, '${image_url}');`
       )
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(`error creating city, `, err));
@@ -36,7 +36,7 @@ module.exports = {
   getCities: (req, res) => {
     sequelize
       .query(
-        `SELECT ci.city_name, co.name, ci.rating, ci.city_id
+        `SELECT ci.city_name, co.name, ci.rating, ci.city_id, ci.image_url
       FROM cities ci
       JOIN countries co on ci.country_id = co.country_id
       ORDER BY ci.rating DESC`
