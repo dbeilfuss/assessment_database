@@ -41,11 +41,12 @@ function getCities() {
       const city = elem.city_name;
       const country = elem.name;
       const rating = elem.rating;
+      const city_id = elem.city_id;
       let countryCard = `<div class="country-card">
                     <h2>${city}</h2>
                     <h2> ${country}</h2>
                     <h3>Rating: ${rating}/5</h3>
-                    <button onclick="deleteCard(${elem["city_id"]})">Delete</button>
+                    <button onclick="deleteCard(${city_id})">Delete</button>
                     </div>
                 `;
 

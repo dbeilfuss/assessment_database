@@ -34,15 +34,26 @@ module.exports = {
   },
 
   getCities: (req, res) => {
-    // const { countryId, name, rating } = req.body;
-    // console.log("countryId: " + countryId);
     sequelize
       .query(
-        `SELECT ci.city_name, co.name, ci.rating
+        `SELECT ci.city_name, co.name, ci.rating, ci.city_id
       FROM cities ci
       JOIN countries co on ci.country_id = co.country_id`
       )
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(`error getting cities, `, err));
+  },
+
+  deleteCity: (req, res) => {
+    const { id } = req.params;
+    console.log("cityId: " + id);
+    sequelize
+      .query(
+        `DELETE
+        FROM cities
+        WHERE city_id = '${id}'`
+      )
+      .then((dbRes) => res.status(200).send(dbRes[0]))
+      .catch((err) => console.log(`error deleting city, `, err));
   },
 };
