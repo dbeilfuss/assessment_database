@@ -38,7 +38,8 @@ module.exports = {
       .query(
         `SELECT ci.city_name, co.name, ci.rating, ci.city_id
       FROM cities ci
-      JOIN countries co on ci.country_id = co.country_id`
+      JOIN countries co on ci.country_id = co.country_id
+      ORDER BY ci.rating DESC`
       )
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(`error getting cities, `, err));
