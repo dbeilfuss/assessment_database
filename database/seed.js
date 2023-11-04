@@ -203,6 +203,31 @@ values ('Afghanistan'),
 ('Yemen'),
 ('Zambia'),
 ('Zimbabwe');
+
+create table cities (
+    city_id serial primary key, 
+	country_id integer,
+    name varchar,
+    rating integer
+);
+
+INSERT INTO cities (country_id, name, rating) 
+VALUES
+(187, 'New York', 4),
+(187, 'Los Angeles', 3),
+(61, 'Paris', 5),
+(61, 'Lyon', 4),
+(86, 'Tokyo', 5),
+(86, 'Osaka', 4),
+(186, 'London', 5),
+(186, 'Edinburgh', 4),
+(9, 'Sydney', 5),
+(9, 'Melbourne', 4),
+(187, 'Ludington, Michigan', 4),
+(187, 'Goodland, Kansas', 3),
+(9, 'Sydney', 5),
+(83, 'Jerusalem', 5),
+(95, 'Beirut', 3);
 `;
 
 module.exports = {
